@@ -41,11 +41,6 @@ router.post("/register", async (req, res) => {
     }
 });
 
-
-
-/**
- * LOGIN
- */
 router.post("/login", async (req, res) => {
 
     try {
@@ -80,6 +75,10 @@ router.post("/login", async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: "Server error" });
     }
+});
+
+router.post("/logout", (req, res) => {
+    res.cookie('token', null); 
 });
 
 module.exports = router;
